@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Log.w(TAG, "This is a warn log");
         Log.e(TAG, "This is an error log");
 
-        Button button = (Button) findViewById(R.id.button);
+        /*Button button = (Button) findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent( MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
-        });
+        }); */
     }
 }
