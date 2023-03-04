@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Hello Android</string>
-    <string name="to">To</string>
-    <string name="subject">Subject</string>
-    <string name="message">Message</string>
-    <string name="send">Send</string>
+    <string name="app_name">MyApplication2</string>
+
+    <string-array name="Robots">
+        <item>Securiton</item>
+        <item>ED-E</item>
+        <item>Mr. Handy</item>
+    </string-array>
 </resources>
