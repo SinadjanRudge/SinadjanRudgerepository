@@ -10,36 +10,41 @@
 
     <EditText
         android:id="@+id/to"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="383dp"
+        android:layout_height="83dp"
         android:hint="@string/to"
-        app:layout_constraintBottom_toTopOf="@+id/subject"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <EditText
-        android:id="@+id/subject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/subject"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077"
-        tools:layout_editor_absoluteX="3dp" />
-
-    <EditText
-        android:id="@+id/message"
-        android:layout_width="381dp"
-        android:layout_height="440dp"
-        android:layout_weight="1"
-        android:gravity="top"
-        android:hint="@string/message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.057" />
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="376dp"
+        android:layout_height="97dp"
+        android:hint="@string/subject"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="385dp"
+        android:layout_height="391dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/button"
