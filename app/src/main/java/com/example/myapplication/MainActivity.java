@@ -1,36 +1,71 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+import android.widget.Toast;
+
+import com.example.myapplication.PizzaDetailFragment;
+
+import com.example.myapplication.PizzaMenuFragment;
+
+public class MainActivity extends AppCompatActivity  implements PizzaMenuFragment.OnItemSelectedListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+        Log.d("DEBUG", getResources().getConfiguration().orientation + "");
 
-        Log.v(TAG, "This is a verbose log");
-        Log.d(TAG, "This is a debug log");
-        Log.i(TAG, "This is an info log");
-        Log.w(TAG, "This is a warn log");
-        Log.e(TAG, "This is an error log");
+        if (savedInstanceState == null) {
+            // Instance of first fragment
+            PizzaMenuFragment firstFragment = new PizzaMenuFragment();
 
-        /*Button button = (Button) findViewById(R.id.button);
+            // Add Fragment to FrameLayout (flContainer), using FragmentManager
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();// begin  FragmentTransaction
+            ft.add(R.id.flContainer, firstFragment);                                // add    Fragment
+            ft.commit();                                                            // commit FragmentTransaction
+        }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "Button Clicked");
-                Intent intent = new Intent( MainActivity.this, SecondActivity.class);
-                startActivity(intent);
-            }
-        }); */
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            PizzaDetailFragment secondFragment = new PizzaDetailFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", 0);
+            secondFragment.setArguments(args);          // (1) Communicate with Fragment using Bundle
+            FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();// begin  FragmentTransaction
+            ft2.add(R.id.flContainer2, secondFragment);                               // add    Fragment
+            ft2.commit();                                                            // commit FragmentTransaction
+        }
+    }
+
+    @Override
+    public void onPizzaItemSelected(int position) {
+        Toast.makeText(this, "Called By Fragment A: position - "+ position, Toast.LENGTH_SHORT).show();
+
+        // Load Pizza Detail Fragment
+        PizzaDetailFragment secondFragment = new PizzaDetailFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        secondFragment.setArguments(args);          // (1) Communicate with Fragment using Bundle
+
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer2, secondFragment) // replace flContainer
+                    //.addToBackStack(null)
+                    .commit();
+        }else{
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer, secondFragment) // replace flContainer
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }
