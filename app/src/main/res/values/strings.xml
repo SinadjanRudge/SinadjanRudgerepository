@@ -1,9 +1,14 @@
 <resources>
-    <string name="app_name">MyApplication2</string>
-
-    <string-array name="Robots">
-        <item>Securiton</item>
-        <item>ED-E</item>
-        <item>Mr. Handy</item>
-    </string-array>
+    <string name="app_name">Hello Android</string>
+    <string name="to">To</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="ninjas">Ninjas</string>
+    <string name="pirates">Pirates</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="toggles">Toggles</string>
+    <string name="cats">Cats</string>
+    <string name="dogs">Dogs</string>
+    <string name="search">SEARCH</string>
 </resources>
