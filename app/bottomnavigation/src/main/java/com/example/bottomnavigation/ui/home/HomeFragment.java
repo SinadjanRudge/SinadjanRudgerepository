@@ -29,19 +29,27 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        final Button buttonGoToSecond = binding.buttonGotosecond;
+        final Button buttonGoToSecond = binding.buttonGoToSecond;
 
-        buttonGoToSecond.setOnClickListener(new View.OnClickListener(){
+        buttonGoToSecond.setOnClickListener(new View.OnClickListener() {
+
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SecondActivity.class);
-                intent.putExtra("PASS_ME", "Hi I'm from Main Activity!!!!");
+                intent.putExtra("PASS_ME", "Hi I'm from Main Activity");
                 startActivity(intent);
             }
         });
         return root;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+}
 
     @Override
     public void onDestroyView() {
