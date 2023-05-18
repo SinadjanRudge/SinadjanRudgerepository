@@ -1,19 +1,23 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
-public class DialogFragment extends androidx.fragment.app.DialogFragment{
+import com.example.myapplication.R;
+
+public class DialogFragment extends androidx.fragment.app.DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-
-        return inflater.inflate(R.layout.dialog_fragment,container, false);
+        return inflater.inflate(R.layout.fragment_dialog, container, false);
     }
 }
